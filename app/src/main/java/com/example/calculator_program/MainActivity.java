@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
     // ADDITIONAL
     private TextView summation;
-    private Button dot, squareRoot, clear;
+    private Button dot, squareRoot, clear, backSpace;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
         dot = (Button) findViewById(R.id.Dot);
         squareRoot = (Button) findViewById(R.id.SquareRoot);
         clear = (Button) findViewById(R.id.Clear);
+        backSpace = (Button) findViewById(R.id.Backspace);
 
         Interaction();
     }
@@ -292,6 +293,13 @@ public class MainActivity extends AppCompatActivity {
             input.setText("");
         });
 
+        backSpace.setOnClickListener(e -> {
+            if (input.getText().toString().isEmpty()) {
+                return;
+            }
+
+            input.setText(input.getText().toString().substring(0, input.getText().toString().length() - 1));
+        });
 
     }
 }
