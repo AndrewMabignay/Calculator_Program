@@ -142,6 +142,11 @@ public class MainActivity extends AppCompatActivity {
 
         minus.setOnClickListener(e -> {
             if (input.getText().toString().isEmpty()) {
+                input.setText("-");
+                return;
+            }
+
+            if (input.getText().toString().equals("-")) {
                 return;
             }
 
@@ -286,5 +291,7 @@ public class MainActivity extends AppCompatActivity {
             summation.setText("");
             input.setText("");
         });
+
+
     }
 }
